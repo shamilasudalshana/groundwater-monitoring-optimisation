@@ -1,0 +1,37 @@
+# --- secrets ---
+.env
+*.env
+!.env.example
+
+# --- project working data (stays on the network drive, never in git) ---
+00_Rohdaten/
+01_QGIS_Projekt/
+02_Zwischendaten/
+03_Ergebnisse/
+
+# --- spatial / binary data ---
+*.gpkg
+*.gpkg-shm
+*.gpkg-wal
+*.tif
+*.tiff
+*.mdb
+*.accdb
+*.shp
+*.dbf
+*.shx
+*.prj
+*.cpg
+*.qpj
+
+# --- python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- qgis / os ---
+*.qgz~
+*.qgs~
+Thumbs.db
+.DS_Store
