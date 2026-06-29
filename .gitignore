@@ -35,3 +35,6 @@ venv/
 *.qgs~
 Thumbs.db
 .DS_Store
+
+# --presenrtations--
+*.pptx

@@ -11,7 +11,7 @@
 --  (oberer 0-50 / mittlerer 50-100 / tieferer >100) is applied downstream
 --  from config.py so the thresholds live in exactly one user-editable place.
 --
---  PREREQUISITE: run 01_setup_as_postgres.sql once (creates the gw_analysis
+--  PREREQUISITE: run 00_setup_as_postgres.sql once (creates the gw_analysis
 --  and hydro_manual schemas + the manual status table). Then run THIS file
 --  as geodin2pg_etl_user. It is freely re-runnable (CREATE OR REPLACE).
 -- ============================================================================

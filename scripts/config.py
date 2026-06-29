@@ -49,8 +49,26 @@ MANDATORY_POLYGON_LAYER   = "pflichtbereiche"
 # ==========================================================================
 HORIZON_BANDS        = {"oberer": (0, 50), "mittlerer": (50, 100), "tieferer": (100, 1000000)}
 MANDATORY_BY_HORIZON = {"oberer": True, "mittlerer": False, "tieferer": True}
-SCORING_WEIGHTS      = {"timeseries": 0.45, "parameter": 0.35, "operation": 0.20}
+#SCORING_WEIGHTS      = {"timeseries": 0.45, "parameter": 0.35, "operation": 0.20}
+
+SCORING_WEIGHTS = {
+    "timeseries": 0.40,   # record length + continuity
+    "parameter":  0.30,   # GW level and/or water quality present
+    "quality":    0.15,   # NEW: frequency, minus jump & homogeneity penalties
+    "operation":  0.15,   # active / unknown / decommissioned / dismantled
+}
+
 GAP_PRIORITY_MAX     = 2
+
+# Thresholds for compute_filter_quality.py (the heavy per-series stats).
+QUALITY_PARAMS = {
+    "jump_threshold_m":      3.0,   # |level change| over a short window = implausible jump
+    "jump_window_days":      7,     # "short window" for the jump test
+    "homogeneity_z":         1.0,   # standardized first/second-half shift above this = break
+    "min_points_outlier":    8,     # need this many readings to report an outlier rate
+    "min_points_homogeneity": 20,   # need this many to test for a break
+}
+
 
 # Score classes: score_total -> label/decision. Edit freely; pushed to
 # gw_analysis.cfg_score_class by sync_config_to_db.py. A row applies when
